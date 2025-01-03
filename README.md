@@ -94,8 +94,8 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ### **Contact**
 For questions or feedback, feel free to reach out to us at:  
-📧 Email: support@polychatapp.com  
-📱 GitHub: [PolyChat](https://github.com/your-username/polychat)
+📧 Email: jalmario@ttu.edu
+📱 GitHub: [PolyChat](https://github.com/Jeann1809/PolyChat.git)
 
 --- 
 
