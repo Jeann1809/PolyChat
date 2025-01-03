@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:polychat/components/button.dart';
 import 'package:polychat/components/textfield.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  //email and password controllers
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final void Function()? onTap;
+
+  LoginPage({
+    super.key,
+    required this.onTap,
+  });
+
+  //login method
+  void login() {}
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +31,7 @@ class LoginPage extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
             ),
 
-            const SizedBox(height: 25),
+            const SizedBox(height: 5),
 
             //welcome back message
             Text(
@@ -30,12 +42,13 @@ class LoginPage extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 25),
+            const SizedBox(height: 50),
 
             //email textfield
             CustomTextField(
               obscureText: false,
               hintText: "Email",
+              controller: emailController,
             ),
 
             const SizedBox(height: 25),
@@ -44,11 +57,30 @@ class LoginPage extends StatelessWidget {
             CustomTextField(
               obscureText: true,
               hintText: "Password",
+              controller: passwordController,
             ),
 
+            const SizedBox(height: 25),
+
             //login button
+            CustomButton(
+              text: "Login",
+              onTap: login,
+            ),
+
+            const SizedBox(height: 25),
 
             //register
+            Text("Do not have an account?"),
+            GestureDetector(
+              onTap: onTap,
+              child: Text(
+                "Register now",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            )
           ],
         ),
       ),
