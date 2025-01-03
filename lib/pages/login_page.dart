@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:polychat/auth/auth_service.dart';
 import 'package:polychat/components/button.dart';
 import 'package:polychat/components/textfield.dart';
 
@@ -14,7 +15,26 @@ class LoginPage extends StatelessWidget {
   });
 
   //login method
-  void login() {}
+  void login(BuildContext context) async {
+    //auth service
+    final authService = AuthService();
+
+    //try login
+    try {
+      await authService.signInWithEmailPassword(
+          emailController.text, passwordController.text);
+    }
+
+    //catch any errors
+    catch (error) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(error.toString()),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +85,7 @@ class LoginPage extends StatelessWidget {
             //login button
             CustomButton(
               text: "Login",
-              onTap: login,
+              onTap: () => login(context),
             ),
 
             const SizedBox(height: 25),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:polychat/auth/auth_service.dart';
 import 'package:polychat/components/button.dart';
 import 'package:polychat/components/textfield.dart';
 
@@ -16,7 +17,36 @@ class RegisterPage extends StatelessWidget {
   });
 
   //register method
-  void register() {}
+  void register(BuildContext context) {
+    //get auth service
+    final _auth = AuthService();
+
+    //passwords are equal
+    if (passwordController.text == confirmPasswordController.text) {
+      try {
+        _auth.signUpWithEmailPassword(
+          emailController.text,
+          passwordController.text,
+        );
+      } catch (error) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(error.toString()),
+          ),
+        );
+      }
+    } //paswords are not equal
+
+    else {
+      showDialog(
+        context: context,
+        builder: (context) => const AlertDialog(
+          title: Text("Passwords do not match"),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,10 +103,10 @@ class RegisterPage extends StatelessWidget {
 
             const SizedBox(height: 25),
 
-            //login button
+            //register button
             CustomButton(
               text: "Register",
-              onTap: register,
+              onTap: () => register(context),
             ),
 
             const SizedBox(height: 25),

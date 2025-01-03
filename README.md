@@ -65,30 +65,8 @@ Before running the PolyChat application, ensure you have the following installed
 
 ---
 
-### **Project Structure**
-- **lib/**  
-  - **main.dart**: Entry point of the application.  
-  - **screens/**: Contains UI screens for the app.  
-  - **services/**: API integration and logic for message translation.  
-  - **models/**: Data models for messages and users.  
-  - **constants/**: Holds static values like API keys and configurations.  
-
 - **assets/**  
   - Stores images, icons, and other assets.  
-
----
-
-### **Contribution Guidelines**
-We welcome contributions! Follow these steps to contribute:  
-1. Fork the repository.  
-2. Create a new branch for your feature or bug fix.  
-3. Commit your changes and push them to your forked repository.  
-4. Open a pull request detailing your changes.
-
----
-
-### **License**
-This project is licensed under the MIT License. See the `LICENSE` file for details.  
 
 ---
 
